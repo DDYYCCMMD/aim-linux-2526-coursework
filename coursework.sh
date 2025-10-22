@@ -26,14 +26,17 @@
 # ============================================================================
 
 # 任务 1: 创建目录结构
-# 要求：在 ./generated 目录下继续创建以下目录结构：
+# 要求：在 /generated 目录下继续创建以下目录结构：
 #   workspace/
 #   ├── scripts/
 #   └── data/
 # 提示：先进入 generated 目录，然后使用创建子目录，创建完成后回到上级目录
 
 # 请在下方写下你的命令（删除下面的 echo 语句并替换为你的命令，下面每一题都同理）
-echo "任务 1: 请完成创建目录结构的命令"
+cd ./generated
+mkdir -p workspace/scripts
+mkdir -p workspace/data
+cd ..
 
 
 # 任务 2: 创建文件
@@ -41,7 +44,8 @@ echo "任务 1: 请完成创建目录结构的命令"
 #       hello.sh 和 utils.sh
 
 # 请在下方写下你的命令
-echo "任务 2: 请完成创建文件的命令"
+touch ./generated/workspace/scripts/hello.sh
+touch ./generated/workspace/scripts/utils.sh
 
 
 # 任务 3: 创建文件内容
@@ -51,21 +55,25 @@ echo "任务 2: 请完成创建文件的命令"
 # 提示：可以自行上网搜索如何一次性写入包含多行的文件
 
 # 请在下方写下你的命令
-echo "任务 3: 请完成创建文件内容的命令"
+cat > ./generated/workspace/scripts/hello.sh << EOL
+#!/bin/bash
+echo "Hello, Linux!"
+EOL
+
 
 
 # 任务 4: 删除文件
 # 要求：删除 ./generated/workspace/scripts/utils.sh 文件
 
 # 请在下方写下你的命令
-echo "任务 4: 请完成删除文件的命令"
+rm -f ./generated/workspace/scripts/utils.sh
 
 
 # 任务 5: 使用 rm 删除目录
 # 要求：删除 ./generated/workspace/data/ 目录
 
 # 请在下方写下你的命令
-echo "任务 5: 请完成删除目录的命令"
+rm -rf ./generated/workspace/data/
 
 
 # 任务 6: 使用 cat 和 grep 创建和搜索文件
@@ -78,7 +86,14 @@ echo "任务 5: 请完成删除目录的命令"
 # 提示：可以自行上网搜索如何一次性写入包含多行的文件
 
 # 请在下方写下你的命令
-echo "任务 6: 请完成创建文件和搜索的命令"
+cat > ./generated/workspace/info.txt << EOL
+Linux is a powerful operating system.
+Bash scripting is fun and useful.
+Command line tools are essential for developers.
+EOL
+
+
+grep 'Linux' ./generated/workspace/info.txt > ./generated/workspace/result.txt
 
 
 # ============================================================================
